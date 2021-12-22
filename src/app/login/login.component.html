@@ -1,0 +1,29 @@
+<body>
+
+    <div class="login-wrapper">
+
+        <form class="form" (ngSubmit)="login_method(username, password)">
+
+            <img src="../../assets/images/avatar.png" alt="no-image">
+
+            <h2>Login</h2>
+
+            <div class="input-group">
+                <input type="text" name="loginUser" id="loginUser" [(ngModel)]="username" required>
+                <label for="loginUser">User Name</label>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="loginPassword" id="loginPassword" [(ngModel)]="password" required>
+                <label for="loginPassword">Password</label>
+            </div>
+
+            <button type="submit" class="submit-btn">Login</button>
+        
+        </form>
+
+
+
+    </div>
+</body>
+

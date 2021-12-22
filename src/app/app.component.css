@@ -3,5 +3,6 @@
 }
 .nav-button {
   margin: 5px;
-  color: blue;
+  color: white;
+  background: rgb(122, 177, 190);
 }

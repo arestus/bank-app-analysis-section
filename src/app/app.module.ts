@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
+import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FileUploadComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    BarChartComponent
   ],
   imports: [
     FormsModule,

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
+import { MatTabsModule } from '@angular/material/tabs';
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,7 @@ import { FileUploadComponent } from './components/file-upload/file-upload.compon
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatTabsModule
     
   ],
   providers: [],

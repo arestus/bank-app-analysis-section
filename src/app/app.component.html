@@ -1,1 +1,11 @@
-<router-outlet></router-outlet>
+<!-- <button type="button" routerLink="/file-upload" routerLinkActive="active">File Upload</button>
+<button type="button" routerLink="/bar-chart" >Bar-chart</button> -->
+<nav mat-tab-nav-bar *ngIf="router.url !== '/'" [backgroundColor]="background">
+    <button class="nav-button" mat-tab-link routerLink="/file-upload">File upload</button>
+    <button class="nav-button" mat-tab-link routerLink="/bar-chart">Bar-chart</button>
+</nav>
+<div class="container">
+    <router-outlet></router-outlet>
+</div>
+
+

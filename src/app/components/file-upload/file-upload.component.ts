@@ -15,7 +15,15 @@ export class FileUploadComponent implements OnInit {
   }
 
   onFileSelected(event) {
-    this.selectedFile = <File>event.target.files[0]
+    var userFile = event.target.files[0]
+    if (userFile.name.includes(".csv")) {
+      this.selectedFile = <File>event.target.files[0]
+    } else if(userFile.name.includes(".pdf")) {
+      this.selectedFile = <File>event.target.files[0]
+    } else {
+      alert("Please choose only 'pdf' or 'csv' format file")
+      this.selectedFile = null as any
+    }
     console.log(this.selectedFile)
   }
 

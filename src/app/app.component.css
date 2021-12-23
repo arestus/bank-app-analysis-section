@@ -6,3 +6,8 @@
   color: white;
   background: rgb(122, 177, 190);
 }
+.background-image {
+  background: url("../assets/images/5570863.jpg");
+  background-size: cover;
+  height: 100%;
+}

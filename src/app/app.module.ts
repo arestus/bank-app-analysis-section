@@ -13,6 +13,7 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BarChartJsonComponent } from './components/bar-chart-json/bar-chart-json.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FileUploadComponent,
     LoginComponent,
     HomeComponent,
-    BarChartComponent
+    BarChartComponent,
+    BarChartJsonComponent
   ],
   imports: [
     FormsModule,

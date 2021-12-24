@@ -1,5 +1,9 @@
-import { HttpClient, HttpEventType } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { HttpHeaders } from '@angular/common/http';
+
+
 
 @Component({
   selector: 'app-file-upload',
@@ -18,7 +22,7 @@ export class FileUploadComponent implements OnInit {
     var userFile = event.target.files[0]
     if (userFile.name.includes(".csv")) {
       this.selectedFile = <File>event.target.files[0]
-    } else if(userFile.name.includes(".pdf")) {
+    } else if (userFile.name.includes(".pdf")) {
       this.selectedFile = <File>event.target.files[0]
     } else {
       alert("Please choose only 'pdf' or 'csv' format file")
@@ -28,20 +32,17 @@ export class FileUploadComponent implements OnInit {
   }
 
   onUpload() {
-    // const fd = new FormData()
+    //const fileCurr = this.selectedFile
+    const fd = new FormData()
+    fd.append('file', this.selectedFile, this.selectedFile.name)
+    //const headers = { 'content-type': 'multipart/form-data' }  
     
-    // fd.append('cart-data', this.selectedFile, this.selectedFile.name)
-    
-    // this.http.post('link to api', fd, {
-    //   reportProgress: true,
-    //   observe: 'events'
-    // }).subscribe(event => {
-    //   if (event.type === HttpEventType.UploadProgress) {
-    //     console.log('Upload Progress: ' + Math.round(event.loaded / event.total * 100) + '%')
-    //   } else if(event.type === HttpEventType.Response) {
-    //     console.log(event)
-    //   }
-    // })
-    console.log("Check")
+
+    return this.http.post("http://127.0.0.1:5000/upload", fd).subscribe(event => {
+      console.log(event)
+    })
+      
   }
 }
+
+

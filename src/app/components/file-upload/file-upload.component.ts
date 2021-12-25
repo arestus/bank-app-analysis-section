@@ -36,17 +36,9 @@ export class FileUploadComponent implements OnInit {
       console.log(result)
       this.store.onSave(result)
     }) 
-    
-    //const fileCurr = this.selectedFile
-    // const fd = new FormData()
-    // fd.append('file', this.selectedFile, this.selectedFile.name)
-    // //const headers = { 'content-type': 'multipart/form-data' }  
-    
-
-    // return this.http.post("http://127.0.0.1:5000/upload", fd).subscribe(event => {
-    //   console.log(event)
-    // })
-      
+    // this.uploadService.upload(this.selectedFile).subscribe(data => {
+    //   console.log(data)
+    // })  
   }
 }
 

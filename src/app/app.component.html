@@ -3,7 +3,8 @@
 <nav mat-tab-nav-bar *ngIf="router.url !== '/'" [backgroundColor]="background">
     <button class="nav-button" mat-stroked-button color="accent" routerLink="/file-upload">File upload</button>
     <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
-    <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart-json">Bar-chart-json</button>
+    <!-- <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart-json">Bar-chart</button> -->
+    <button class="nav-button" mat-stroked-button color="accent" routerLink="/pie-chart-json">Pie-chart</button>
 </nav>
 <div class="container background-image">
     <router-outlet></router-outlet>

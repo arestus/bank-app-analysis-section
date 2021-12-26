@@ -54,11 +54,14 @@ export class PieChartComponent implements OnInit {
       });
 
 
-      for (var item in holder) {
+    for (var item in holder) {
+        if(holder[item] > 0)
         this.dataForPie.push({ name: item, value: holder[item] });
       }
 
-      console.log(this.dataForPie);
+    console.log(this.dataForPie);
+      return this.dataForPie
+      
     // userCredit.reduce(function (res: any, value: any) {
     //   if (!res[value.activity]) {
     //     res[value.activity] = { Id: value.activity, amount: 0 };

@@ -5,6 +5,7 @@ import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
 import * as d3Csv from 'd3';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-bar-chart',
@@ -25,22 +26,16 @@ export class BarChartComponent implements OnInit {
   dataTest:any;
   color: any;
   
-  constructor() {
+  constructor(private save: StoreService) {
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
   }
 
-  ngOnInit() {
-    d3Csv.csv("./assets/data/DataSet1.csv").then(data => {
-      console.log(data);
-      
+  ngOnInit() {  
       this.initSvg();
-      this.initAxis(data);
+      this.initAxis();
       this.drawAxis();
-      this.drawBars(data)
-      
-    });
-    
+      this.drawBars()
   }
 
   initSvg() {
@@ -50,16 +45,16 @@ export class BarChartComponent implements OnInit {
       .append('svg')
       .attr('width', '100%')
       .attr('height', '100%')
-      .attr('viewBox', '0 0 900 500');
+      .attr('viewBox', '0 0 1500 500');
     this.g = this.svg.append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
   }
 
-  initAxis(data:any) {
+  initAxis() {
     this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
     this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
-    this.x.domain(data.map((d:any) => d.DATE));
-    this.y.domain([0, d3Array.max(data, (d:any) => Number(d.WITHDRAWALS))]);
+    this.x.domain(this.save.newArray.map((d:any) => d.transaction_date));
+    this.y.domain([0, d3Array.max(this.save.newArray, (d:any) => Number(d.withdraw))]);
 
   }
  
@@ -80,18 +75,18 @@ export class BarChartComponent implements OnInit {
       .text('Frequency');
   }
 
-  drawBars(data:any) {
+  drawBars() {
 
     
     this.g.selectAll('.bar')
-      .data(data)
+      .data(this.save.newArray)
       .enter().append('rect')
       .attr('class', 'bar')
-      .attr('x', (d:  any) => this.x(d.DATE))
-      .attr('y', (d:  any) => this.y(Number(d.WITHDRAWALS)))
+      .attr('x', (d:  any) => this.x(d.transaction_date))
+      .attr('y', (d:  any) => this.y(Number(d.withdraw)))
       .attr('width', this.x.bandwidth())
-      .attr('fill',(d: any) => this.color(d.DATE) )
-      .attr('height', (d:  any) => this.height - this.y(Number(d.WITHDRAWALS)));
+      .attr('fill',(d: any) => this.color(d.transaction_date) )
+      .attr('height', (d:  any) => this.height - this.y(Number(d.withdraw)));
   }
 
 

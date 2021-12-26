@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-
-import * as d3Csv from 'd3';
+import { StoreService } from 'src/app/services/store.service';
 
 @Component({
   selector: 'app-bar-chart-json',
@@ -10,12 +9,11 @@ import * as d3Csv from 'd3';
 })
 export class BarChartJsonComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-    
-   }
+  localData;
 
-  ngOnInit(): void {
-   
+  constructor(private http: HttpClient, private save: StoreService) {}
+
+  ngOnInit() {
+    console.log(this.save.newArray)
   }
-
 }

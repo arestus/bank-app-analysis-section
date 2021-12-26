@@ -1,7 +1,7 @@
+import { UploadService } from './../../services/upload.service';
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { HttpHeaders } from '@angular/common/http';
+import { StoreService } from 'src/app/services/store.service';
 
 
 
@@ -13,7 +13,7 @@ import { HttpHeaders } from '@angular/common/http';
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null as any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private uploadService: UploadService, private store: StoreService) { }
 
   ngOnInit(): void {
   }
@@ -32,16 +32,13 @@ export class FileUploadComponent implements OnInit {
   }
 
   onUpload() {
-    //const fileCurr = this.selectedFile
-    const fd = new FormData()
-    fd.append('file', this.selectedFile, this.selectedFile.name)
-    //const headers = { 'content-type': 'multipart/form-data' }  
-    
-
-    return this.http.post("http://127.0.0.1:5000/upload", fd).subscribe(event => {
-      console.log(event)
-    })
-      
+    this.uploadService.upload(this.selectedFile).subscribe(result => {
+      console.log(result)
+      this.store.onSave(result)
+    }) 
+    // this.uploadService.upload(this.selectedFile).subscribe(data => {
+    //   console.log(data)
+    // })  
   }
 }
 

@@ -15,6 +15,9 @@ import { BarChartComponent } from './components/bar-chart/bar-chart.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BarChartJsonComponent } from './components/bar-chart-json/bar-chart-json.component';
 import { PieChartComponent } from './components/pie-chart/pie-chart.component';
+import { BarChart2Component } from './components/bar-chart2/bar-chart2.component';
+import { BarChart3Component } from './components/bar-chart3/bar-chart3.component';
+import { BarChart4Component } from './components/bar-chart4/bar-chart4.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +27,10 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
     HomeComponent,
     BarChartComponent,
     BarChartJsonComponent,
-    PieChartComponent
+    PieChartComponent,
+    BarChart2Component,
+    BarChart3Component,
+    BarChart4Component
   ],
   imports: [
     FormsModule,

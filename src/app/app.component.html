@@ -4,15 +4,15 @@
     
     <nav mat-tab-nav-bar *ngIf="router.url !== '/'" [backgroundColor]="background">
         <button class="nav-button" mat-stroked-button color="accent" routerLink="/file-upload">File upload</button>
-        <button [disabled] class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
+        <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
         <!-- <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart-json">Bar-chart</button> -->
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/pie-chart-json">Pie-chart</button>
+        <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/pie-chart-json">Pie-chart</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart2">Balance analysis</button>
+        <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart2">Balance analysis</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart3">Deposit analysis</button>
+        <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart3">Deposit analysis</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart4">Withdraw analysis</button>
+        <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart4">Withdraw analysis</button>
 
     </nav>
     <div class="container background-image">

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
   login_method(username:string, password:string):void
   {
     if(username == "admin" && password == "admin"){
-      this.router.navigate(['/home']);
+      this.router.navigate(['/file-upload']);
     }
     else{
       alert('Invalid credentials');

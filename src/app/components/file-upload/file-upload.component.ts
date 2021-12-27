@@ -13,6 +13,7 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null as any;
+  url: any;
 
   constructor(
     private http: HttpClient,
@@ -34,8 +35,8 @@ export class FileUploadComponent implements OnInit {
       alert("Please choose only 'pdf' or 'csv' format file")
       this.selectedFile = null as any
     }
-    console.log(this.selectedFile)
   }
+
 
   onUpload() {
     this.loader.show()
@@ -44,6 +45,7 @@ export class FileUploadComponent implements OnInit {
       this.store.onSave(result)
       this.loader.hide()
     }) 
+    this.store.sendMessage('isFile')
     // this.uploadService.upload(this.selectedFile).subscribe(data => {
     //   console.log(data)
     // })  

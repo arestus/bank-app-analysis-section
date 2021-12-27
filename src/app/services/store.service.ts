@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,7 @@ export class StoreService {
   responseData = []
   arrayOfObj
   newArray: any = [];
+  private subject = new Subject<any>();
 
 
   constructor() { }
@@ -26,6 +28,18 @@ export class StoreService {
     }
     console.log(this.newArray)
   }
+
+  sendMessage(message: string) {
+        this.subject.next({ text: message });
+    }
+
+    clearMessages() {
+        this.subject.next();
+    }
+
+    onMessage(): Observable<any> {
+        return this.subject.asObservable();
+    }
 
   // convertObjectToArrayOfObject(data: any) {
   //   for (let key in data) {

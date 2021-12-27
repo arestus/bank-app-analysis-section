@@ -28,3 +28,6 @@
   opacity: 0.8;
   z-index: 100;
 }
+.main-container {
+  overflow-x: hidden;
+}

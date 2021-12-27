@@ -1,7 +1,7 @@
 <!-- <button type="button" routerLink="/file-upload" routerLinkActive="active">File Upload</button>
 <button type="button" routerLink="/bar-chart" >Bar-chart</button> -->
 <!-- <div [ngClass]="{'spinner-overlay': loading$ | async}"> -->
-    
+<div class="main-container background-image">  
     <nav mat-tab-nav-bar *ngIf="router.url !== '/'" [backgroundColor]="background">
         <button class="nav-button" mat-stroked-button color="accent" routerLink="/file-upload">File upload</button>
         <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
@@ -17,13 +17,13 @@
             routerLink="/risk-analysis">RISK</button>
 
     </nav>
-    <div class="container background-image">
+    <div class="container ">
         <mat-progress-spinner class="spinner" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
         <router-outlet></router-outlet>
         <div [ngClass]="{'spinner-overlay': loading$ | async}"></div>
         
     </div>
-    
+</div>
 <!-- </div> -->
 
 

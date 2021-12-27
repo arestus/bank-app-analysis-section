@@ -14,6 +14,8 @@ import { StoreService } from 'src/app/services/store.service';
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null as any;
   url: any;
+  notify = false;
+  count = 0;
 
   constructor(
     private http: HttpClient,
@@ -44,6 +46,8 @@ export class FileUploadComponent implements OnInit {
       console.log(result)
       this.store.onSave(result)
       this.loader.hide()
+      this.count = 1
+      this.notify = true;
     }) 
     this.store.sendMessage('isFile')
     // this.uploadService.upload(this.selectedFile).subscribe(data => {

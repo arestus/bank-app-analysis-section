@@ -1,17 +1,18 @@
 <!-- <button type="button" routerLink="/file-upload" routerLinkActive="active">File Upload</button>
 <button type="button" routerLink="/bar-chart" >Bar-chart</button> -->
 <!-- <div [ngClass]="{'spinner-overlay': loading$ | async}"> -->
+    
     <nav mat-tab-nav-bar *ngIf="router.url !== '/'" [backgroundColor]="background">
         <button class="nav-button" mat-stroked-button color="accent" routerLink="/file-upload">File upload</button>
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
+        <button [disabled] class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart">Bar-chart</button>
         <!-- <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart-json">Bar-chart</button> -->
         <button class="nav-button" mat-stroked-button color="accent" routerLink="/pie-chart-json">Pie-chart</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart2">Bar-chart2</button>
+        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart2">Balance analysis</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart3">Bar-chart3</button>
+        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart3">Deposit analysis</button>
 
-        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart4">Bar-chart4</button>
+        <button class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart4">Withdraw analysis</button>
 
     </nav>
     <div class="container background-image">
@@ -20,6 +21,7 @@
         <div [ngClass]="{'spinner-overlay': loading$ | async}"></div>
         
     </div>
+    
 <!-- </div> -->
 
 

@@ -20,6 +20,7 @@ import { BarChart2Component } from './components/bar-chart2/bar-chart2.component
 import { BarChart3Component } from './components/bar-chart3/bar-chart3.component';
 import { BarChart4Component } from './components/bar-chart4/bar-chart4.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,7 +42,7 @@ import { BarChart4Component } from './components/bar-chart4/bar-chart4.component
     BrowserAnimationsModule,
     MatTabsModule,
     MatButtonModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -18,8 +18,8 @@ export class FileUploadComponent implements OnInit {
     private http: HttpClient,
     private uploadService: UploadService,
     private store: StoreService,
-    private loader: LoaderService
-  ) { }
+    private loader: LoaderService,
+  ) {}
 
   ngOnInit(): void {
   }
@@ -39,16 +39,11 @@ export class FileUploadComponent implements OnInit {
 
   onUpload() {
     this.loader.show()
-    console.log("show")
     this.uploadService.upload(this.selectedFile).subscribe(result => {
       console.log(result)
       this.store.onSave(result)
       this.loader.hide()
-      console.log("hide")
     }) 
-    
-    
-    
     // this.uploadService.upload(this.selectedFile).subscribe(data => {
     //   console.log(data)
     // })  

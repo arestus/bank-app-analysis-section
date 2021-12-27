@@ -6,13 +6,14 @@ import { Injectable } from '@angular/core';
 export class StoreService {
   responseData = []
   arrayOfObj
-  newArray: any = []
+  newArray: any = [];
+
 
   constructor() { }
 
   onSave(data: any) {
+    this.newArray = []
     this.responseData = data['Value Date']
-    //let newArray: any = []
     for (let e in this.responseData) {
       let newObject = {}
       newObject['value_date'] = this.responseData[e][0]
@@ -22,7 +23,6 @@ export class StoreService {
       newObject["deposit"] = this.responseData[e][4]
       newObject["balance"] = this.responseData[e][5]
       this.newArray.push(newObject)
-     
     }
     console.log(this.newArray)
   }

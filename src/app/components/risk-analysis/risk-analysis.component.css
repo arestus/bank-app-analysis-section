@@ -1,0 +1,13 @@
+.depositValue {
+  color: green;
+}
+.withdrawValue {
+  color: red;
+}
+.creditPart {
+  display: flex;
+  align-items: baseline;
+}
+.creditDecision {
+  margin-left: 10px;
+}

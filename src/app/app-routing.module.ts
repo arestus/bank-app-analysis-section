@@ -9,6 +9,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { BarChart4Component } from './components/bar-chart4/bar-chart4.component';
+import { RiskAnalysisComponent } from './components/risk-analysis/risk-analysis.component';
 
 const routes: Routes = [
   { path:'', component : LoginComponent },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path:'pie-chart-json', component : PieChartComponent },
   { path:'bar-chart2', component: BarChart2Component },
   { path:'bar-chart3', component: BarChart3Component },
-  { path:'bar-chart4', component: BarChart4Component }
+  { path:'bar-chart4', component: BarChart4Component },
+  { path:'risk-analysis', component: RiskAnalysisComponent }
 ];
 
 @NgModule({

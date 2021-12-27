@@ -19,6 +19,7 @@ import { PieChartComponent } from './components/pie-chart/pie-chart.component';
 import { BarChart2Component } from './components/bar-chart2/bar-chart2.component';
 import { BarChart3Component } from './components/bar-chart3/bar-chart3.component';
 import { BarChart4Component } from './components/bar-chart4/bar-chart4.component';
+import { RiskAnalysisComponent } from './components/risk-analysis/risk-analysis.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { BarChart4Component } from './components/bar-chart4/bar-chart4.component
     PieChartComponent,
     BarChart2Component,
     BarChart3Component,
-    BarChart4Component
+    BarChart4Component,
+    RiskAnalysisComponent
   ],
   imports: [
     FormsModule,

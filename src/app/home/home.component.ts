@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ThemePalette} from '@angular/material/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,17 @@ import {ThemePalette} from '@angular/material/core';
 export class HomeComponent implements OnInit {
   background: ThemePalette = 'primary'
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    var name = localStorage.getItem('bankUserName')?.toString()
+
+    if(name == null){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.router.navigate(['/home']);
+    }
   }
 
 }

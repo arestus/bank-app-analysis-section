@@ -15,4 +15,10 @@ export class AppComponent {
 
   constructor(public router: Router){}
 
+  logout_bankuser(){
+    localStorage.clear()
+
+    this.router.navigate(['/']);
+  }
+
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {ThemePalette} from '@angular/material/core';
+import { ThemePalette } from '@angular/material/core';
+import { LoaderService } from './services/loader.service';
 
 
 
@@ -12,7 +13,8 @@ import {ThemePalette} from '@angular/material/core';
 export class AppComponent {
   title = 'bank-app-analysis-section';
   background: ThemePalette = 'primary'
+  loading$ = this.loader.loading$;
 
-  constructor(public router: Router){}
+  constructor(public router: Router,public loader: LoaderService){}
 
 }

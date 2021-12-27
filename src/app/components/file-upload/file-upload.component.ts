@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { UploadService } from './../../services/upload.service';
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -13,7 +14,12 @@ import { StoreService } from 'src/app/services/store.service';
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null as any;
 
-  constructor(private http: HttpClient, private uploadService: UploadService, private store: StoreService) { }
+  constructor(
+    private http: HttpClient,
+    private uploadService: UploadService,
+    private store: StoreService,
+    private loader: LoaderService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -32,10 +38,17 @@ export class FileUploadComponent implements OnInit {
   }
 
   onUpload() {
+    this.loader.show()
+    console.log("show")
     this.uploadService.upload(this.selectedFile).subscribe(result => {
       console.log(result)
       this.store.onSave(result)
+      this.loader.hide()
+      console.log("hide")
     }) 
+    
+    
+    
     // this.uploadService.upload(this.selectedFile).subscribe(data => {
     //   console.log(data)
     // })  

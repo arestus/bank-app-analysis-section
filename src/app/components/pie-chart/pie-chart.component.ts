@@ -4,6 +4,7 @@ import { StoreService } from 'src/app/services/store.service';
 import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Shape from 'd3-shape';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pie-chart',
@@ -33,7 +34,7 @@ export class PieChartComponent implements OnInit {
   color: any;
   svg: any;
 
-  constructor(private save: StoreService) {
+  constructor(private router: Router, private save: StoreService) {
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
     this.radius = Math.min(this.width, this.height) / 2;
@@ -73,6 +74,16 @@ export class PieChartComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
+    var name = localStorage.getItem('bankUserName')?.toString()
+
+    if(name == null){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.router.navigate(['/pie-chart-json']);
+    }
+
     this.responseData = this.save.newArray 
     console.log(this.responseData);
     this.initSvg();

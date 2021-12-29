@@ -1,5 +1,6 @@
 import { newArray } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoaderService } from 'src/app/services/loader.service';
 import { StoreService } from 'src/app/services/store.service';
 
@@ -16,12 +17,22 @@ export class RiskAnalysisComponent implements OnInit {
   finishDate = '';
   creditAvailable = ''
 
-  constructor(private save: StoreService,private loader: LoaderService,) {
+  constructor(private router: Router, private save: StoreService,private loader: LoaderService,) {
     
     console.log(this.mainData)
   }
 
   ngOnInit(): void {
+
+    var name = localStorage.getItem('bankUserName')?.toString()
+
+    if(name == null){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.router.navigate(['/risk-analysis']);
+    }
+
     //this.mainData = this.save.newArray
     this.checkDeposit()
     this.checkWithdraw()

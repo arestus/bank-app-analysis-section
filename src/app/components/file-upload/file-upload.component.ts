@@ -3,6 +3,7 @@ import { UploadService } from './../../services/upload.service';
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
+import { Router } from '@angular/router';
 
 
 
@@ -22,9 +23,18 @@ export class FileUploadComponent implements OnInit {
     private uploadService: UploadService,
     private store: StoreService,
     private loader: LoaderService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
+    var name = localStorage.getItem('bankUserName')?.toString()
+
+    if(name == null){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.router.navigate(['/file-upload']);
+    }
   }
 
   onFileSelected(event) {

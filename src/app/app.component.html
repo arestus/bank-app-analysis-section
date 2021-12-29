@@ -15,11 +15,17 @@
         <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent" routerLink="/bar-chart4">Withdraw analysis</button>
         <button [disabled]="this.buttonStatus" class="nav-button" mat-stroked-button color="accent"
             routerLink="/risk-analysis">RISK</button>
+
+    
+        
+        <button style="background-color: red; margin-left: 330px;" class="nav-button" mat-stroked-button color="accent" (click)="logout_bankuser()">Logout</button>
+    
+
     </nav>
     <div class="container ">
         <mat-progress-spinner class="spinner" [mode]="'indeterminate'" *ngIf="loading$ | async"></mat-progress-spinner>
         <router-outlet></router-outlet>
-        <button class="nav-button-danger" mat-stroked-button color="accent" (click)="logout_bankuser()">Logout</button>
+        
         <div [ngClass]="{'spinner-overlay': loading$ | async}"></div>
         
     </div>

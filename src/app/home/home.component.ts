@@ -19,7 +19,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/']);
     }
     else{
-      this.router.navigate(['/home']);
+      this.router.navigate(['/file-upload']);
     }
   }
 

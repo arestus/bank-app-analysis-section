@@ -5,6 +5,7 @@ import * as d3 from 'd3-selection';
 import * as d3Scale from 'd3-scale';
 import * as d3Array from 'd3-array';
 import * as d3Axis from 'd3-axis';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bar-chart3',
@@ -41,12 +42,22 @@ export class BarChart3Component implements OnInit {
   ]
 
   
-  constructor(private save: StoreService) { 
+  constructor(private router: Router, private save: StoreService) { 
     this.width = 900 - this.margin.left - this.margin.right;
     this.height = 500 - this.margin.top - this.margin.bottom;
   }
 
   ngOnInit(): void {
+
+    var name = localStorage.getItem('bankUserName')?.toString()
+
+    if(name == null){
+      this.router.navigate(['/']);
+    }
+    else{
+      this.router.navigate(['/bar-chart3']);
+    }
+
       this.initSvg();
       this.initAxis();
       this.drawAxis();

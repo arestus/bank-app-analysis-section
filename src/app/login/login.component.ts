@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
           //save to local storage
           localStorage.setItem('bankUserName', data.toString());
 
-          this.router.navigate(['/home']);
+          this.router.navigate(['/file-upload']);
 
         }
         else{

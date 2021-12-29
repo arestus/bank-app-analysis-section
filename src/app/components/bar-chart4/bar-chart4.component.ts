@@ -61,17 +61,17 @@ export class BarChart4Component implements OnInit {
       .append('svg')
       .attr('width', '100%')
       .attr('height', '100%')
-      .attr('viewBox', '0 0 1500 500');
+      .attr('viewBox', '0 0 900 500');
     this.g = this.svg.append('g')
       .attr('transform', 'translate(' + this.margin.left + ',' + this.margin.top + ')');
 
 
       this.svg.append('text')
     .attr('x', -(this.height / 2))
-    .attr('y', 10)
+    .attr('y', 0)
     .attr('transform', 'rotate(-90)')
     .attr('text-anchor', 'middle')
-    .text('Income')
+    .text('Withdraw')
 
 this.svg.append('text')
     .attr('x', 460)
@@ -85,8 +85,8 @@ this.svg.append('text')
     this.x = d3Scale.scaleBand().rangeRound([0, this.width]).padding(0.1);
     this.y = d3Scale.scaleLinear().rangeRound([this.height, 0]);
     this.x.domain(this.dataChart3.map((d:any) => d.stats));
-    this.y.domain(this.dataChart3.map((d:any) => d. value));
-
+    // this.y.domain(this.dataChart3.map((d:any) => d. value));
+    this.y.domain([0, d3Array.max(this.save.newArray, (d:any) => Number(d.withdraw))])
   }
  
   drawAxis() {

@@ -1,3 +1,4 @@
+import { LoaderService } from './../../services/loader.service';
 import { UploadService } from './../../services/upload.service';
 import { HttpClient} from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
@@ -12,8 +13,16 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class FileUploadComponent implements OnInit {
   selectedFile: File = null as any;
+  url: any;
+  notify = false;
+  count = 0;
 
-  constructor(private http: HttpClient, private uploadService: UploadService, private store: StoreService) { }
+  constructor(
+    private http: HttpClient,
+    private uploadService: UploadService,
+    private store: StoreService,
+    private loader: LoaderService,
+  ) {}
 
   ngOnInit(): void {
   }
@@ -28,14 +37,19 @@ export class FileUploadComponent implements OnInit {
       alert("Please choose only 'pdf' or 'csv' format file")
       this.selectedFile = null as any
     }
-    console.log(this.selectedFile)
   }
 
+
   onUpload() {
+    this.loader.show()
     this.uploadService.upload(this.selectedFile).subscribe(result => {
       console.log(result)
       this.store.onSave(result)
+      this.loader.hide()
+      this.count = 1
+      this.notify = true;
     }) 
+    this.store.sendMessage('isFile')
     // this.uploadService.upload(this.selectedFile).subscribe(data => {
     //   console.log(data)
     // })  

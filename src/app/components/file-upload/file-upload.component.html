@@ -1,5 +1,12 @@
-<h2>File upload component!</h2>
+<h2>Upload your file for analysis</h2>
 <input type="file" style="display: none" (change)="onFileSelected($event)" #fileInput>
 <button class="pick-button" mat-raised-button color="primary" type="button" (click)="fileInput.click()">Pick file</button>
 <button class="upload-button" mat-raised-button color="accent" type="button" (click)="onUpload()">Upload</button>
-<p *ngIf="selectedFile">{{selectedFile.name}}</p>
+<p *ngIf="selectedFile" class="file-subscribe">You have selected a file: <span class="file-name">{{selectedFile.name}}</span></p>
+<div class="container">
+    <p *ngIf="count > 0">File uploaded successfully!</p>
+    <div class="notification">
+        <em class="far fa-bell icon" [ngClass]="{'notify':notify}"></em>
+        <span class="badge" *ngIf="count > 0">{{count}}</span>
+    </div>
+</div>

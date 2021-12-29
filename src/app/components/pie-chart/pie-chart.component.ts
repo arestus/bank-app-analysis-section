@@ -100,7 +100,7 @@ export class PieChartComponent implements OnInit {
     this.arc = d3Shape
       .arc()
       .outerRadius(this.radius - 70)
-      .innerRadius(5);
+      .innerRadius(0);
     this.labelArc = d3Shape
       .arc()
       .outerRadius(this.radius - 40)

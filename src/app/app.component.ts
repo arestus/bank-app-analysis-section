@@ -39,4 +39,10 @@ export class AppComponent {
         this.subscription.unsubscribe();
     }
 
+  logout_bankuser(){
+    localStorage.clear()
+
+    this.router.navigate(['/']);
+  }
+
 }

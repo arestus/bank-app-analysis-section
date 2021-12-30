@@ -182,7 +182,7 @@ export class PieChartComponent implements OnInit {
         (d: any) => 'translate(' + this.labelPer.centroid(d) + ')'
       )
       .attr('dy', '.25em')
-      .text((d: any) => '$' + Number(d.data.value))
+      .text((d: any) => '₹' + Number(d.data.value))
       .style('font-weight', 'bold')
       .style('z-index', '5');
   }
